@@ -1,14 +1,17 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import "./App.css";
+import Form from "./components/Form";
+import Right from "./components/Right";
 
-export function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <h1>Hello World</h1>
+      <div className="image"></div>
+      <div className="main w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat">
+        <Form />
+        <Right />
+      </div>
     </>
-  )
-}
+  );
+};
+
+export default App;

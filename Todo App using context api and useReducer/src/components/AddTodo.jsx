@@ -1,7 +1,12 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { BiMessageAdd } from "react-icons/bi";
+import { TodoItemsContext } from "../store/todoItemsStore";
 
 function AddTodo({ onNewItem }) {
+
+  const todos = useContext(TodoItemsContext)
+  console.log(todos)
+
   const todoNameElement = useRef();
   const dueDateElement = useRef();
 

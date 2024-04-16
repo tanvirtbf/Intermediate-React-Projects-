@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import "./App.css";
 import AddTodo from "./components/AddTodo";
 import AppName from "./components/AppName";
@@ -18,24 +18,24 @@ const reducer = (state,action) =>{
 }
 
 function App() {
-  // const [todoItems, setTodoItems] = useState([]);
   const [todoItems, dispatch] = useReducer(reducer, [])
 
   const handleNewItem = (itemName, itemDueDate) => {
     dispatch({type: 'addItem', payload: {itemName,itemDueDate}})
   };
 
-  const handleDeleteItem = (todoItemName) => {
-    dispatch({type: 'deleteItem', payload: todoItemName})
-  };
+  // const handleDeleteItem = (todoItemName) => {
+  //   dispatch({type: 'deleteItem', payload: todoItemName})
+  // };
 
   return (
     <>
       <TodoItemsContext.Provider
         value={{
           todoItems: todoItems,
+          dispatch: dispatch,
           onNewItem: handleNewItem,
-          onDeleteClick: handleDeleteItem,
+          // onDeleteClick: handleDeleteItem,
         }}
       >
         <center className="todo-container">

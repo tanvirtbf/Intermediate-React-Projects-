@@ -1,9 +1,18 @@
-import React from 'react'
+import styles from './Post.module.css'
+import SinglePost from '../singlePost/SinglePost'
 
 const Post = () => {
   return (
-    <div>
-      Post
+    <div className={styles.main}>
+      <SinglePost />
+      <SinglePost />
+      <SinglePost />
+      <SinglePost />
+      <SinglePost />
+      <SinglePost />
+      <SinglePost />
+      <SinglePost />
+      <SinglePost />
     </div>
   )
 }

@@ -9,7 +9,7 @@ const Form = () => {
     customerId: "",
     details: "",
     phone: "",
-  });
+  }); 
 
   const handleSubmit = (e) => {
     e.preventDefault();

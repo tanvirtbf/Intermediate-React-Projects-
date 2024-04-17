@@ -24,9 +24,9 @@ function App() {
     dispatch({type: 'addItem', payload: {itemName,itemDueDate}})
   };
 
-  // const handleDeleteItem = (todoItemName) => {
-  //   dispatch({type: 'deleteItem', payload: todoItemName})
-  // };
+  const handleDeleteItem = (todoItemName) => {
+    dispatch({type: 'deleteItem', payload: todoItemName})
+  };
   
 
   return (
@@ -34,9 +34,8 @@ function App() {
       <TodoItemsContext.Provider
         value={{
           todoItems: todoItems,
-          dispatch: dispatch,
+          onDeleteClick: handleDeleteItem,
           onNewItem: handleNewItem,
-          // onDeleteClick: handleDeleteItem,
         }}
       >
         <center className="todo-container">

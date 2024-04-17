@@ -6,7 +6,7 @@
   z-index: 1;
 }
 .image{
-  background-image: url('../public/maxresdefault.jpg');
+  background-image: url('/maxresdefault.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: auto;
@@ -62,13 +62,21 @@
   font-size: 20px;
 }
 .right-main{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+.right-row{
+  width: 80%;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border: 1px solid black;
-  padding: 20px;
-  margin: 0 30px;
-  width: 30%;
-  justify-content: center;
-  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: white;
+}
+.right-main-div{
+  display: flex;
+  justify-content: space-between;
 }

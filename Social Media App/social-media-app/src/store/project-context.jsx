@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer, useState } from "react";
 
 export const ProjectContext = createContext({
   addPost: () => {},
@@ -6,15 +6,29 @@ export const ProjectContext = createContext({
   handleDelete: () => {},
 });
 
+const ADDPOST = 'addPost'
+const DELETEPOST = 'deletePost'
+
+const reducer = (state,action) =>{
+  switch(action.type){
+    case ADDPOST: 
+      return [...state, action.payload]
+    case DELETEPOST:
+      return state.filter((item) => item.name !== action.payload)
+    default: 
+      return state;
+  }
+}
+
 export const ProjectDataContext = ({ children }) => {
-  const [data, setData] = useState([]);
+
+  const [data, dispatch] = useReducer(reducer, []);
+
   const addPost = (postData) => {
-    setData([...data, postData]);
-    console.log(data);
+    dispatch({type: ADDPOST, payload: postData})
   };
   const handleDelete = (num) => {
-    const newData = data.filter((item) => item.name !== num)
-    setData(newData)
+    dispatch({type: DELETEPOST, payload: num})
   }
   return (
     <>

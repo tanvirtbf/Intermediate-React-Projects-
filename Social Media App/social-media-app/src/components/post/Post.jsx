@@ -8,7 +8,7 @@ const Post = () => {
   console.log(data)
   return (
     <div className={styles.main}>
-      {data.map((item, i) => <SinglePost key={i} name={item.name} schoolname={item.schoolname} goal={item.goal} job={item.job} />)}
+      { data.length === 0 ? <h1 style={{width: '100%', height:'100vh', textAlign:'center'}}>No Post Here</h1> :  data.map((item, i) => <SinglePost key={i} name={item.name} schoolname={item.schoolname} goal={item.goal} job={item.job} />)}
     </div>
   )
 }

@@ -1,23 +1,23 @@
 import styles from "./SinglePost.module.css";
 
-const SinglePost = () => {
+const SinglePost = ({name,schoolname,goal,job}) => {
   return (
     <div className={styles.main}>
       <div>
         <h4>Name: </h4>
-        <p>Hiiii</p>
+        <p>{name}</p>
       </div>
       <div>
         <h4>School: </h4>
-        <p>Hiiii</p>
+        <p>{schoolname}</p>
       </div>
       <div>
         <h4>Goal: </h4>
-        <p>Hiiii</p>
+        <p>{goal}</p>
       </div>
       <div>
         <h4>Job: </h4>
-        <p>Hiiii</p>
+        <p>{job}</p>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const Post = () => {
   console.log(data)
   return (
     <div className={styles.main}>
-      {data.map((item, i) => <SinglePost key={i}/>)}
+      {data.map((item, i) => <SinglePost key={i} name={item.name} schoolname={item.schoolname} goal={item.goal} job={item.job} />)}
     </div>
   )
 }

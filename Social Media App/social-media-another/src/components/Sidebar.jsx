@@ -2,7 +2,7 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
+        className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
         style={{ width: 280 }}
       >
         <a
@@ -29,31 +29,7 @@ const Sidebar = () => {
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#speedometer2" />
               </svg>
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link text-white">
-              <svg className="bi pe-none me-2" width={16} height={16}>
-                <use xlinkHref="#table" />
-              </svg>
-              Orders
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link text-white">
-              <svg className="bi pe-none me-2" width={16} height={16}>
-                <use xlinkHref="#grid" />
-              </svg>
-              Products
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link text-white">
-              <svg className="bi pe-none me-2" width={16} height={16}>
-                <use xlinkHref="#people-circle" />
-              </svg>
-              Customers
+              Create Post
             </a>
           </li>
         </ul>

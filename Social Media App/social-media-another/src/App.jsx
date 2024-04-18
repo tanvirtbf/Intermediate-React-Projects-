@@ -1,18 +1,21 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Sidebar from './components/Sidebar'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 function App() {
-
   return (
     <>
-      <Header />
-      <Sidebar />
-      <Footer />
+      <div className="app-container">
+        <Sidebar />
+        <div className="content">
+          <Header />
+          <Footer />
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

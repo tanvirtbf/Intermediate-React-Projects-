@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 export const ProjectContext = createContext({
   addPost: () => {},
   data: [],
+  handleDelete: () => {},
 });
 
 export const ProjectDataContext = ({ children }) => {
@@ -11,9 +12,13 @@ export const ProjectDataContext = ({ children }) => {
     setData([...data, postData]);
     console.log(data);
   };
+  const handleDelete = (num) => {
+    const newData = data.filter((item) => item.name !== num)
+    setData(newData)
+  }
   return (
     <>
-      <ProjectContext.Provider value={{ addPost, data, }}>
+      <ProjectContext.Provider value={{ addPost, data, handleDelete }}>
         {children}
       </ProjectContext.Provider>
     </>

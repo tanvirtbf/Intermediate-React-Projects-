@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import styles from "./SinglePost.module.css";
+import { ProjectContext } from "../../store/project-context";
 
 const SinglePost = ({name,schoolname,goal,job}) => {
+  const {handleDelete} = useContext(ProjectContext)
   return (
     <div className={styles.main}>
       <div>
@@ -18,6 +21,9 @@ const SinglePost = ({name,schoolname,goal,job}) => {
       <div>
         <h4>Job: </h4>
         <p>{job}</p>
+      </div>
+      <div>
+        <button onClick={() => handleDelete(name)}>Delete This Post</button>
       </div>
     </div>
   );

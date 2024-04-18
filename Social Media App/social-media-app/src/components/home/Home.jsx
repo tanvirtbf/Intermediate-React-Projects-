@@ -18,6 +18,12 @@ const Home = () => {
     const schoolname = schoolnameRef.current.value;
     const goal = goalRef.current.value;
     const job = jobRef.current.value;
+
+    nameRef.current.value = ""
+    schoolnameRef.current.value = ""
+    goalRef.current.value = ""
+    jobRef.current.value = ""
+    
     addPost({name,schoolname,goal,job});
     console.log({name,schoolname,goal,job})
   };

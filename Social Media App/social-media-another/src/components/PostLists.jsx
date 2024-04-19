@@ -3,10 +3,12 @@ import { PostListContext } from "../store/post-list-store";
 import Post from "./Post";
 
 const PostLists = () => {
-  const { PostList } = useContext(PostListContext);
+  const { postList } = useContext(PostListContext);
+  console.log(postList)
   return (
     <div>
-      {PostList.map((item) => (
+      <Post />
+      {postList.map((item) => (
         <Post
           key={item.namee}
           namee={item.namee}

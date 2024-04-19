@@ -1,7 +1,15 @@
 import { useState } from "react";
 
-const Sidebar = () => {
-  const [activate,setActivate] = useState('home')
+const Sidebar = ({ setSideBar }) => {
+  const [activate, setActivate] = useState("home");
+  function homeClick() {
+    setActivate("home");
+    setSideBar('home')
+  }
+  function createPostClick() {
+    setActivate("createPost");
+    setSideBar('createPost')
+  }
   return (
     <>
       <div
@@ -20,7 +28,14 @@ const Sidebar = () => {
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a href="#" className={`nav-link ${activate==='home'? 'active': ''}`} aria-current="page" onClick={()=> setActivate('home')}>
+            <a
+              href="#"
+              className={`nav-link ${
+                activate === "home" ? "active" : "text-white"
+              }`}
+              aria-current="page"
+              onClick={homeClick}
+            >
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#home" />
               </svg>
@@ -28,7 +43,13 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className={`nav-link ${activate==='createPost'?'active':''} text-white`} onClick={()=> setActivate('createPost')}>
+            <a
+              href="#"
+              className={`nav-link ${
+                activate === "createPost" ? "active" : "text-white"
+              }`}
+              onClick={createPostClick}
+            >
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#speedometer2" />
               </svg>

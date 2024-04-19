@@ -9,14 +9,14 @@ import { useState } from "react";
 
 function App() {
   const [sideBar, setSideBar] = useState('home')
+  console.log(sideBar)
   return (
     <>
       <div className="app-container">
-        <Sidebar />
+        <Sidebar setSideBar={setSideBar}/>
         <div className="content">
           <Header />
-          <CreatePost />
-          <PostList />
+          {sideBar==='home'? <PostList /> : <CreatePost />}
           <Footer />
         </div>
       </div>

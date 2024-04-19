@@ -7,8 +7,7 @@ const PostLists = () => {
   console.log(postList)
   return (
     <div>
-      <Post />
-      {postList.map((item) => (
+      { postList.length!==0 && postList.map((item) => (
         <Post
           key={item.namee}
           namee={item.namee}

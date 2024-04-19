@@ -1,7 +1,24 @@
+import { useRef } from "react";
+
 const CreatePost = () => {
+  const nameRef = useRef('')
+  const ageRef = useRef('')
+  const classRef = useRef('')
+  const jobRef = useRef('')
+  const jobDesRef = useRef('')
+
+  const onSubmitFunc = (e) => {
+    e.preventDefault();
+    const namee = nameRef.current.value
+    const age = nameRef.current.value
+    const classs = classRef.current.value
+    const job = jobRef.current.value
+    const jobDes = jobDesRef.current.value
+  }
+
   return (
     <>
-      <form>
+      <form onSubmit={onSubmitFunc}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Enter Your Name
@@ -11,6 +28,7 @@ const CreatePost = () => {
             className="form-control"
             id="name"
             aria-describedby="emailHelp"
+            ref={nameRef}
           />
         </div>
         <div className="mb-3">
@@ -22,6 +40,7 @@ const CreatePost = () => {
             className="form-control"
             id="age"
             aria-describedby="emailHelp"
+            ref={ageRef}
           />
         </div>
         <div className="mb-3">
@@ -33,6 +52,7 @@ const CreatePost = () => {
             className="form-control"
             id="class"
             aria-describedby="emailHelp"
+            ref={classRef}
           />
         </div>
         <div className="mb-3">
@@ -44,6 +64,7 @@ const CreatePost = () => {
             className="form-control"
             id="job"
             aria-describedby="emailHelp"
+            ref={jobRef}
           />
         </div>
         <div className="mb-3">
@@ -55,6 +76,7 @@ const CreatePost = () => {
             className="form-control"
             id="description"
             aria-describedby="emailHelp"
+            ref={jobDesRef}
           />
         </div>
         <button type="submit" className="btn btn-primary">

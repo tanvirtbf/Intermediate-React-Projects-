@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <div className="app-container">
-        <Sidebar setSideBar={setSideBar}/>
+        <Sidebar setSideBar={setSideBar} sideBar={sideBar}/>
         <div className="content">
           <Header />
           {sideBar==='home'? <PostList /> : <CreatePost />}

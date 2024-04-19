@@ -1,15 +1,7 @@
 import { useState } from "react";
 
-const Sidebar = ({ setSideBar }) => {
-  const [activate, setActivate] = useState("home");
-  function homeClick() {
-    setActivate("home");
-    setSideBar('home')
-  }
-  function createPostClick() {
-    setActivate("createPost");
-    setSideBar('createPost')
-  }
+const Sidebar = ({ setSideBar, sideBar }) => {
+
   return (
     <>
       <div
@@ -31,10 +23,10 @@ const Sidebar = ({ setSideBar }) => {
             <a
               href="#"
               className={`nav-link ${
-                activate === "home" ? "active" : "text-white"
+                sideBar === "home" ? "active" : "text-white"
               }`}
               aria-current="page"
-              onClick={homeClick}
+              onClick={()=> setSideBar('home')}
             >
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#home" />
@@ -46,9 +38,9 @@ const Sidebar = ({ setSideBar }) => {
             <a
               href="#"
               className={`nav-link ${
-                activate === "createPost" ? "active" : "text-white"
+                sideBar === "createPost" ? "active" : "text-white"
               }`}
-              onClick={createPostClick}
+              onClick={()=> setSideBar('createPost')}
             >
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#speedometer2" />

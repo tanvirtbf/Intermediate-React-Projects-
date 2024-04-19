@@ -24,10 +24,12 @@ const PostListProvider = ({ children }) => {
 
   const [postList, dispatchPostList] = useReducer(reducer, []);
   const addPost = (post) => {
-    dispatchPostList(post)
+    dispatchPostList({type: ADDPOST, payload: post})
     console.log(post)
   };
-  const deletePost = () => {};
+  const deletePost = (namee) => {
+    dispatchPostList({type: DELETEPOST, payload: namee})
+  };
 
   return (
     <PostList.Provider

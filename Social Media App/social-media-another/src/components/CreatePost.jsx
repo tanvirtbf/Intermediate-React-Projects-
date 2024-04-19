@@ -1,6 +1,11 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { PostList } from "../store/post-list-store";
+
 
 const CreatePost = () => {
+
+  const {addPost} = useContext(PostList)
+
   const nameRef = useRef('')
   const ageRef = useRef('')
   const classRef = useRef('')
@@ -14,6 +19,7 @@ const CreatePost = () => {
     const classs = classRef.current.value
     const job = jobRef.current.value
     const jobDes = jobDesRef.current.value
+    addPost({namee,age,classs,job,jobDes})
   }
 
   return (

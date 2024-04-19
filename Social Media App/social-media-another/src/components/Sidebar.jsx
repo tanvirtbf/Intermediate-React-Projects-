@@ -1,5 +1,3 @@
-
-
 const Sidebar = ({ setSideBar, sideBar }) => {
 
   const handleSidebarClick = (siteName)=>{

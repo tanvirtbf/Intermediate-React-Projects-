@@ -15,10 +15,17 @@ const CreatePost = () => {
   const onSubmitFunc = (e) => {
     e.preventDefault();
     const namee = nameRef.current.value
-    const age = nameRef.current.value
+    const age = ageRef.current.value
     const classs = classRef.current.value
     const job = jobRef.current.value
     const jobDes = jobDesRef.current.value
+
+    nameRef.current.value = ""
+    ageRef.current.value = ""
+    classRef.current.value = ""
+    jobRef.current.value = ""
+    jobDesRef.current.value = ""
+
     addPost({namee,age,classs,job,jobDes})
   }
 

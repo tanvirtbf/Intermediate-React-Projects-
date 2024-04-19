@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 const Sidebar = () => {
+  const [activate,setActivate] = useState('home')
   return (
     <>
       <div
@@ -17,7 +20,7 @@ const Sidebar = () => {
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a href="#" className="nav-link active" aria-current="page">
+            <a href="#" className={`nav-link ${activate==='home'? 'active': ''}`} aria-current="page" onClick={()=> setActivate('home')}>
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#home" />
               </svg>
@@ -25,7 +28,7 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="#" className="nav-link text-white">
+            <a href="#" className={`nav-link ${activate==='createPost'?'active':''} text-white`} onClick={()=> setActivate('createPost')}>
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#speedometer2" />
               </svg>

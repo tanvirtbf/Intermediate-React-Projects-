@@ -1,6 +1,10 @@
 import { createContext } from "react";
 
-const PostList = createContext({})
+const PostList = createContext({
+  postList: [],
+  addPost: () => {},
+  deletePost: () => {},
+})
 
 const PostListProvider = ({children}) =>{
   return (

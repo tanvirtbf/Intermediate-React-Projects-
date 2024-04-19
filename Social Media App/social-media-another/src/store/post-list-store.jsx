@@ -7,9 +7,11 @@ const PostList = createContext({
 });
 
 const PostListProvider = ({ children }) => {
+
   const [postList, dispatchPostList] = useReducer(reducer, []);
   const addPost = () => {};
   const deletePost = () => {};
+  
   return (
     <PostList.Provider
       value={{

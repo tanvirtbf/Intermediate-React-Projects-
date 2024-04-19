@@ -6,7 +6,7 @@ const PostLists = () => {
   const { PostList } = useContext(PostListContext);
   return (
     <div>
-      {PostList.length !== 0 && PostList.map((item) => (
+      {PostList.map((item) => (
         <Post
           key={item.namee}
           namee={item.namee}

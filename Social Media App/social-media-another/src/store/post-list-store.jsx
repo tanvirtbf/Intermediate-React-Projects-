@@ -6,6 +6,16 @@ export const PostListContext = createContext({
   deletePost: () => {},
 });
 
+const defaultPostList = [
+  {
+    namee: 'Tanvir Ahmed',
+    age: 25,
+    classs: 14,
+    job: 'Beauty Booth',
+    jobDes: 'Frontend Developer'
+  }
+]
+
 const ADDPOST = 'post/add'
 const DELETEPOST = 'post/delete'
 
@@ -22,7 +32,7 @@ const reducer = (state, action)=>{
 
 const PostListProvider = ({ children }) => {
 
-  const [postList, dispatchPostList] = useReducer(reducer, []);
+  const [postList, dispatchPostList] = useReducer(reducer, defaultPostList);
   const addPost = (post) => {
     dispatchPostList({type: ADDPOST, payload: post})
     console.log(post)

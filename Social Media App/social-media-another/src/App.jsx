@@ -4,7 +4,7 @@ import "./App.css";
 import CreatePost from "./components/CreatePost";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import PostList from "./components/PostLists";
+import PostLists from "./components/PostLists";
 import Sidebar from "./components/Sidebar";
 import PostListProvider from "./store/post-list-store";
 
@@ -17,7 +17,7 @@ function App() {
         <Sidebar setSideBar={setSideBar} sideBar={sideBar} />
         <div className="content">
           <Header />
-          {sideBar === "home" ? <PostList /> : <CreatePost />}
+          {sideBar === "home" ? <PostLists /> : <CreatePost />}
           <Footer />
         </div>
       </div>

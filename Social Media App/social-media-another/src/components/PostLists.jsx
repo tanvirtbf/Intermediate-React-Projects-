@@ -1,20 +1,23 @@
+import { useContext } from "react";
+import { PostListContext } from "../store/post-list-store";
 import Post from "./Post";
 
-const PostList = () => {
+const PostLists = () => {
+  const { PostList } = useContext(PostListContext);
   return (
     <div>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {PostList.length !== 0 && PostList.map((item) => (
+        <Post
+          key={item.namee}
+          namee={item.namee}
+          age={item.age}
+          classs={item.classs}
+          job={item.job}
+          jobDes={item.jobDes}
+        />
+      ))}
     </div>
   );
 };
 
-export default PostList;
+export default PostLists;

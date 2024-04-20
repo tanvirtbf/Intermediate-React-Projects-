@@ -5,34 +5,33 @@ import NoPost from "./NoPost";
 import Post from "./Post";
 
 const PostLists = () => {
-  const { postList, addPostFromServer } = useContext(PostListContext);
+  const { postList } = useContext(PostListContext);
   console.log(postList);
 
-  const [fetching, setFetching] = useState(false);
+  // const [fetching, setFetching] = useState(false);
 
-  useEffect(() => {
-    setFetching(true);
+  // useEffect(() => {
+  //   setFetching(true);
 
-    const controller = new AbortController();
-    const signal = controller.signal;
+  //   const controller = new AbortController();
+  //   const signal = controller.signal;
 
-    fetch("https://dummyjson.com/posts", {signal})
-      .then((res) => res.json())
-      .then((data) => {
-        addPostFromServer(data.posts);
-        setFetching(false);
-      });
+  //   fetch("https://dummyjson.com/posts", {signal})
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       addPostFromServer(data.posts);
+  //       setFetching(false);
+  //     });
     
-      return () => {
-        console.log('Cleaning up useEffect..')
-        controller.abort();
-      }
-  }, []);
+  //     return () => {
+  //       console.log('Cleaning up useEffect..')
+  //       controller.abort();
+  //     }
+  // }, []);
 
   return (
     <div className="postLists">
-      {fetching && <Loading />}
-      {!fetching && postList.length === 0 ? (
+      { postList.length === 0 ? (
         <NoPost />
       ) : (
         postList.map((post) => <Post key={post.id} post={post} />)

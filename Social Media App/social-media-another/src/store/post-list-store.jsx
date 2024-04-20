@@ -15,8 +15,8 @@ const reducer = (state, action)=>{
   switch(action.type){
     case ADDPOST:
       return [...state, action.payload]
-    case ADDPOSTFROMSERVER:
-      return action.payload;
+    // case ADDPOSTFROMSERVER:
+    //   return action.payload;
     case DELETEPOST:
       return state.filter((item) => item.id !== action.payload)
     default:
@@ -31,9 +31,9 @@ const PostListProvider = ({ children }) => {
   const addPost = (post) => {
     dispatchPostList({type: ADDPOST, payload: post})
   };
-  const addPostFromServer = (allPosts) =>{
-    dispatchPostList({type: ADDPOSTFROMSERVER, payload: allPosts})
-  }
+  // const addPostFromServer = (allPosts) =>{
+  //   dispatchPostList({type: ADDPOSTFROMSERVER, payload: allPosts})
+  // }
   const deletePost = (userId) => {
     dispatchPostList({type: DELETEPOST, payload: userId})
   };
@@ -43,7 +43,7 @@ const PostListProvider = ({ children }) => {
       value={{
         postList: postList,
         addPost: addPost,
-        addPostFromServer: addPostFromServer,
+        // addPostFromServer: addPostFromServer,
         deletePost: deletePost,
       }}
     >

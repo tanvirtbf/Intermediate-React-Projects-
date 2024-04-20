@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import { PostListContext } from "../store/post-list-store";
 import NoPost from "./NoPost";
 import Post from "./Post";
@@ -6,16 +6,14 @@ import Post from "./Post";
 const PostLists = () => {
   const { postList, addPostFromServer } = useContext(PostListContext);
   console.log(postList);
-  const [fetched, setFetched] = useState(false);
 
-  if (!fetched) {
+  useEffect(() => {
     fetch("https://dummyjson.com/posts")
       .then((res) => res.json())
       .then((data) => {
         addPostFromServer(data.posts);
       });
-    setFetched(true)
-  }
+  }, []);
 
   return (
     <div className="postLists">

@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { PostListContext } from "../store/post-list-store";
 import Post from "./Post";
+import NoPost from "./NoPost";
 
 const PostLists = () => {
   const { postList } = useContext(PostListContext);
   console.log(postList)
   return (
-    <div>
-      { postList.length!==0 && postList.map((item) => (
+    <div className="postLists">
+      { postList.length ===0 ? <NoPost /> : postList.map((item) => (
         <Post
           key={item.namee}
           namee={item.namee}

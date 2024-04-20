@@ -1,102 +1,104 @@
 import { useContext, useRef } from "react";
 import { PostListContext } from "../store/post-list-store";
 
-
 const CreatePost = () => {
+  const { addPost } = useContext(PostListContext);
 
-  const {addPost} = useContext(PostListContext)
+  const userIdElement = useRef();
+  const postTitleElement = useRef();
+  const postBodyElement = useRef();
+  const reactionsElement = useRef();
+  const tagsElement = useRef();
 
-  const nameRef = useRef('')
-  const ageRef = useRef('')
-  const classRef = useRef('')
-  const jobRef = useRef('')
-  const jobDesRef = useRef('')
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const userId = userIdElement.current.value;
+    const postTitle = postTitleElement.current.value;
+    const postBody = postBodyElement.current.value;
+    const reactions = reactionsElement.current.value;
+    const tags = tagsElement.current.value.split(" ");
 
-  const onSubmitFunc = (e) => {
-    e.preventDefault();
-    const namee = nameRef.current.value
-    const age = ageRef.current.value
-    const classs = classRef.current.value
-    const job = jobRef.current.value
-    const jobDes = jobDesRef.current.value
+    userIdElement.current.value = "";
+    postTitleElement.current.value = "";
+    postBodyElement.current.value = "";
+    reactionsElement.current.value = "";
+    tagsElement.current.value = "";
 
-    nameRef.current.value = ""
-    ageRef.current.value = ""
-    classRef.current.value = ""
-    jobRef.current.value = ""
-    jobDesRef.current.value = ""
-
-    addPost({namee,age,classs,job,jobDes})
-  }
+    addPost({userId, postTitle, postBody, reactions, tags});
+  };
 
   return (
-    <>
-      <form onSubmit={onSubmitFunc}>
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">
-            Enter Your Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            aria-describedby="emailHelp"
-            ref={nameRef}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="age" className="form-label">
-            Enter Your Age
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="age"
-            aria-describedby="emailHelp"
-            ref={ageRef}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="class" className="form-label">
-            Enter Your Class
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="class"
-            aria-describedby="emailHelp"
-            ref={classRef}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="job" className="form-label">
-            Enter Your Job
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="job"
-            aria-describedby="emailHelp"
-            ref={jobRef}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="description" className="form-label">
-            Enter Your Job Description
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="description"
-            aria-describedby="emailHelp"
-            ref={jobDesRef}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
-    </>
+    <form className="create-post" onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label htmlFor="userId" className="form-label">
+          Enter your User Id here
+        </label>
+        <input
+          type="text"
+          ref={userIdElement}
+          className="form-control"
+          id="userId"
+          placeholder="Your User Id"
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="title" className="form-label">
+          Post Title
+        </label>
+        <input
+          type="text"
+          ref={postTitleElement}
+          className="form-control"
+          id="title"
+          placeholder="How are you feeling today..."
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="body" className="form-label">
+          Post Content
+        </label>
+        <textarea
+          type="text"
+          ref={postBodyElement}
+          rows="4"
+          className="form-control"
+          id="body"
+          placeholder="Tell us more about it"
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="reactions" className="form-label">
+          Number of reactions
+        </label>
+        <input
+          type="text"
+          ref={reactionsElement}
+          className="form-control"
+          id="reactions"
+          placeholder="How many people reacted to this post"
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="tags" className="form-label">
+          Enter your hashtags here
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="tags"
+          ref={tagsElement}
+          placeholder="Please enter tags using space"
+        />
+      </div>
+
+      <button type="submit" className="btn btn-primary">
+        Post
+      </button>
+    </form>
   );
 };
 

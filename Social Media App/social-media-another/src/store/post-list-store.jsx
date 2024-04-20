@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 export const PostListContext = createContext({
   postList: [],
@@ -23,9 +23,9 @@ const reducer = (state, action)=>{
 const PostListProvider = ({ children }) => {
 
   const [postList, dispatchPostList] = useReducer(reducer, []);
+
   const addPost = (post) => {
     dispatchPostList({type: ADDPOST, payload: post})
-    console.log(post)
   };
   const deletePost = (namee) => {
     dispatchPostList({type: DELETEPOST, payload: namee})

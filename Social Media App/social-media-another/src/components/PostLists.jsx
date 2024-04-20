@@ -12,14 +12,10 @@ const PostLists = () => {
   }
   return (
     <div className="postLists">
-      { postList.length ===0 ? <NoPost onFetchPost={onFetchPost}/> : postList.map((item) => (
+      { postList.length ===0 ? <NoPost onFetchPost={onFetchPost}/> : postList.map((post) => (
         <Post
-          key={item.namee}
-          namee={item.namee}
-          age={item.age}
-          classs={item.classs}
-          job={item.job}
-          jobDes={item.jobDes}
+          key={post.id}
+          post={post}
         />
       ))}
     </div>

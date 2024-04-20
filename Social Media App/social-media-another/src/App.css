@@ -38,3 +38,7 @@ form{
   align-items: center;
   justify-content: center;
 }
+.spinner div{
+  width: 10rem;
+  height: 10rem;
+}

@@ -14,7 +14,7 @@ const reducer = (state, action)=>{
     case ADDPOST:
       return [...state, action.payload]
     case DELETEPOST:
-      return state.filter((item) => item.namee !== action.payload)
+      return state.filter((item) => item.userId !== action.payload)
     default:
       return state;
   }
@@ -27,8 +27,8 @@ const PostListProvider = ({ children }) => {
   const addPost = (post) => {
     dispatchPostList({type: ADDPOST, payload: post})
   };
-  const deletePost = (namee) => {
-    dispatchPostList({type: DELETEPOST, payload: namee})
+  const deletePost = (userId) => {
+    dispatchPostList({type: DELETEPOST, payload: userId})
   };
 
   return (

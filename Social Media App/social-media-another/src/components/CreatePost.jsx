@@ -33,7 +33,6 @@ const CreatePost = () => {
         reactions:reactions,
         tags:tags,
         userId:userId,
-        /* other post data */
       }),
     })
       .then((res) => res.json())
@@ -41,8 +40,6 @@ const CreatePost = () => {
         addPost(post)
         console.log(post)
       });
-
-    // addPost({ userId, postTitle, postBody, reactions, tags });
   };
 
   return (

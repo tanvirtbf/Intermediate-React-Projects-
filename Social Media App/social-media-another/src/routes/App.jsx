@@ -1,12 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import PostListProvider from "../store/post-list-store";
 import "./App.css";
-import CreatePost from "./components/CreatePost";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import PostLists from "./components/PostLists";
-import Sidebar from "./components/Sidebar";
-import PostListProvider from "./store/post-list-store";
 
 function App() {
   const [sideBar, setSideBar] = useState("home");
@@ -17,7 +16,7 @@ function App() {
         <Sidebar setSideBar={setSideBar} sideBar={sideBar} />
         <div className="content">
           <Header />
-          {sideBar === "home" ? <PostLists /> : <CreatePost />}
+          <Outlet />
           <Footer />
         </div>
       </div>

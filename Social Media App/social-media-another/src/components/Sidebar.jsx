@@ -1,9 +1,4 @@
-const Sidebar = ({ setSideBar, sideBar }) => {
-
-  const handleSidebarClick = (siteName)=>{
-    setSideBar(siteName)
-  }
-
+const Sidebar = () => {
   return (
     <>
       <div
@@ -23,12 +18,9 @@ const Sidebar = ({ setSideBar, sideBar }) => {
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
             <a
-              href="#"
-              className={`nav-link ${
-                sideBar === "home" ? "active" : "text-white"
-              }`}
+              href="/"
+              className="nav-link text-white"
               aria-current="page"
-              onClick={()=> handleSidebarClick('home')}
             >
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#home" />
@@ -38,11 +30,8 @@ const Sidebar = ({ setSideBar, sideBar }) => {
           </li>
           <li>
             <a
-              href="#"
-              className={`nav-link ${
-                sideBar === "createPost" ? "active" : "text-white"
-              }`}
-              onClick={()=> handleSidebarClick('createPost')}
+              href="/create-post"
+              className="nav-link text-white"
             >
               <svg className="bi pe-none me-2" width={16} height={16}>
                 <use xlinkHref="#speedometer2" />

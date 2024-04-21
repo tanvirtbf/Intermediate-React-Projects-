@@ -1,17 +1,16 @@
 import { useContext } from "react";
 import { PostListContext } from "../store/post-list-store";
-import Loading from "./Loading";
 import NoPost from "./NoPost";
 import Post from "./Post";
+import { useLoaderData } from "react-router-dom";
 
 const PostLists = () => {
-  const { postList, fetching } = useContext(PostListContext);
-  console.log(postList);
+
+  const postList = useLoaderData()
 
   return (
     <div className="postLists">
-      {fetching && <Loading />}
-      {!fetching && postList.length === 0 ? (
+      {postList.length === 0 ? (
         <NoPost />
       ) : (
         postList.map((post) => <Post key={post.id} post={post} />)
@@ -21,3 +20,11 @@ const PostLists = () => {
 };
 
 export default PostLists;
+
+export const PostLoader = () => {
+  return fetch("https://dummyjson.com/posts")
+    .then((res) => res.json())
+    .then((data) => {
+      return data.posts;
+    });
+};

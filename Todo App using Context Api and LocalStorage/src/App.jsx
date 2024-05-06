@@ -14,8 +14,8 @@ function App() {
   const updatedTodo = (id,todo) => {
     setTodos((prev) => prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo )))
   }
-  const deletedTodo = () => {
-
+  const deletedTodo = (id) => {
+    setTodos((prev) => prev.filter((prevTodo) => prevTodo.id !== id) )
   }
 
   return (

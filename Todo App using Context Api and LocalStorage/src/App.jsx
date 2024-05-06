@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import {TodoProvider} from './context'
+import { TodoProvider } from './context';
 
 function App() {
   const [todos,setTodos] = useState([])

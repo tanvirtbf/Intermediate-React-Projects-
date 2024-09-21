@@ -13,8 +13,6 @@ const TodoInput = ({ setInputData }) => {
     setInputData((prevState) => [...prevState, todoInput]);
   }
 
-
-
   return (
     <div className={styles.todoInput}>
       <input

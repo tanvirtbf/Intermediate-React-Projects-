@@ -1,0 +1,9 @@
+.todoInput {
+  display: flex;
+  gap: 20px;
+}
+
+.todoInput input{
+  width: 250px; 
+  padding: 10px;
+}

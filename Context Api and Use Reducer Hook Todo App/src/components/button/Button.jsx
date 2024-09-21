@@ -1,9 +1,9 @@
 import styles from './Button.module.css'
 
-const Button = () => {
+const Button = ({handleClick}) => {
   return (
     <div>
-      <button>ADD</button>
+      <button onClick={handleClick}>ADD</button>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import AppName from './components/appname/AppName'
 import styles from  './App.module.css'
 import AddTodo from './components/addtodo/AddTodo'
 import { useState } from 'react'
+import TodoItems from './components/todoitems/TodoItems'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <div className={styles.main}>
       <AppName />
       <AddTodo addNewItem={addNewItem} />
+      <TodoItems />
     </div>
   )
 }

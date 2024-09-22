@@ -1,0 +1,13 @@
+.singleTodo{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  gap: 10px;
+}
+.singleTodo div{
+  width: 50%
+}
+.button{
+  background-color: red;
+  color: white;
+}

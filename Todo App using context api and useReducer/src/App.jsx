@@ -10,26 +10,21 @@ function reducer(initialState, action){
   let newState = initialState;
   if(action.type==="ADD"){
     newState = [...initialState, {id: crypto.randomUUID(), todoName: action.payload.todoName, todoDate: action.payload.todoDate}]
+  }else if(action.type==="DELETE"){
+    newState = initialState.filter((item)=> item.id !== action.payload.id)
   }
   return newState;
 }
 
 function App() {
-
   const [todoItems, dispatch] = useReducer(reducer,[])
-
-  // const [todoItems, setTodoItems] = useState([]);
+  
   const addNewItem = (todoName, todoDate) => {
     dispatch({type: "ADD", payload:{todoName,todoDate}})
-    // setTodoItems((prevState) => [
-    //   ...prevState,
-    //   { id: crypto.randomUUID(), todoName: todoName, todoDate: todoDate },
-    // ]);
   };
 
   const deleteItem = (id) => {
-    const newTodoItems = todoItems.filter((item) => item.id !== id);
-    setTodoItems(newTodoItems);
+    dispatch({type:'DELETE', payload:{id:id}})
   };
 
   return (

@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import styles from './AddTodo.module.css'
+import { TodoItemsContext } from '../../store/todo-items-context'
 
-const AddTodo = ({addNewItem}) => {
+const AddTodo = () => {
+  const {addNewItem} = useContext(TodoItemsContext)
 
   const [todoName,setTodoName] = useState("")
   const [todoDate,setTodoDate] = useState("")

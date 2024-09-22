@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import styles from './SingleTodo.module.css'
+import { TodoItemsContext } from '../../store/todo-items-context'
 
-const SingleTodo = ({id, todoName, todoDate, deleteItem}) => {
+const SingleTodo = ({id, todoName, todoDate }) => {
+  const {deleteItem} = useContext(TodoItemsContext)
   return (
     <div className={styles.singleTodo}>
       <div>{todoName}</div>

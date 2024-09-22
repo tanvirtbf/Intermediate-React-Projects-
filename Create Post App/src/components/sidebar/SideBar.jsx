@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import styles from './SideBar.module.css'
+import { RootAppContext } from '../../store/app-context'
 
-const SideBar = ({themeChanger}) => {
+const SideBar = () => {
+  const {themeChanger} = useContext(RootAppContext)
 
   const handleClick = (arg)=>{
     themeChanger(arg)

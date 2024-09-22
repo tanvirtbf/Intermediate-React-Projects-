@@ -1,8 +1,10 @@
-import Home from './components/home/Home'
-import CreatePost from './components/createPost/CreatePost'
-import styles from './App.module.css'
-import SideBar from './components/sidebar/SideBar'
 import { useState } from 'react'
+import styles from './App.module.css'
+import CreatePost from './components/createPost/CreatePost'
+import Home from './components/home/Home'
+import SideBar from './components/sidebar/SideBar'
+import { RootAppContext } from './store/app-context'
+import Message from './components/message/Message'
 
 function App() {
   const [theme,SetTheme] = useState('home')
@@ -16,11 +18,23 @@ function App() {
     setFormData([...formData, newFormData])
   }
 
+  function deleteFormData(id){
+    const newFormData = formData.filter((item)=> item.id !== id)
+    setFormData(newFormData)
+  }
+
   return (
-    <div className={styles.app}>
-      <SideBar themeChanger={themeChanger} />
-      {theme==='home'? <Home formData={formData} /> : <CreatePost addFormData={addFormData} />}
+    <RootAppContext.Provider value={{
+      themeChanger,
+      formData,
+      addFormData,
+      deleteFormData,
+    }}>
+      <div className={styles.app}>
+      <SideBar />
+      {theme==='home'? formData.length === 0 ? <Message /> : <Home /> : <CreatePost />}
     </div>
+    </RootAppContext.Provider>
   )
 }
 

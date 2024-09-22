@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import styles from './CreatePost.module.css'
+import { RootAppContext } from '../../store/app-context'
 
-const CreatePost = ({addFormData}) => {
+const CreatePost = () => {
+  const {addFormData} = useContext(RootAppContext)
 
   const [data,setData] = useState({
     id:"",

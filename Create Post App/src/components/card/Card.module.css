@@ -8,6 +8,7 @@
   justify-content: flex-start;
   width: 400px;
   height: fit-content;
+  position: relative;
 }
 .card div{
   display: flex;
@@ -15,4 +16,15 @@
 }
 .card div h4{
   width: 120px;
+}
+.deleteIcon{
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background-color: antiquewhite;
+  padding: 10px;
+  box-sizing: content-box;
+  border-radius: 5px;
 }

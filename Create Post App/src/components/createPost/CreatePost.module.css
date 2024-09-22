@@ -1,0 +1,21 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.formDiv{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.formDiv label{
+  width: 100px;
+}
+.formDiv input{
+  padding: 10px;
+}
+.formDiv button{
+  padding: 10px 25px;
+  cursor: pointer;
+}

@@ -1,8 +1,10 @@
 import styles from './SideBar.module.css'
 
-const SideBar = () => {
-  const handleClick = (id)=>{
-    if(id==='home'){
+const SideBar = ({themeChanger}) => {
+
+  const handleClick = (arg)=>{
+    themeChanger(arg)
+    if(arg==='home'){
       document.querySelector('#home').classList.add(`${styles.bgAdd}`)
       document.querySelector('#post').classList.remove(`${styles.bgAdd}`)
     }else {
@@ -10,12 +12,14 @@ const SideBar = () => {
       document.querySelector('#post').classList.add(`${styles.bgAdd}`)
     }
   }
+
   return (
     <div className={styles.sidebar}>
-      <p id='home' className={styles.bgAdd} onClick={()=> handleClick('home')}>Home</p>
+      <p id='home' onClick={()=> handleClick('home')}>Home</p>
       <p id='post' onClick={()=> handleClick('post')}>Create Post</p>
     </div>
   )
 }
 
 export default SideBar
+

@@ -1,16 +1,21 @@
 import Home from './components/home/Home'
 import CreatePost from './components/createPost/CreatePost'
-import './App.module.css'
+import styles from './App.module.css'
 import SideBar from './components/sidebar/SideBar'
+import { useState } from 'react'
 
 function App() {
+  const [theme,SetTheme] = useState('home')
+
+  function themeChanger(arg){
+    SetTheme(arg)
+  }
 
   return (
-    <>
-      <SideBar />
-      <Home />
-      <CreatePost />
-    </>
+    <div className={styles.app}>
+      <SideBar themeChanger={themeChanger} />
+      {theme==='home'? <Home /> : <CreatePost />}
+    </div>
   )
 }
 

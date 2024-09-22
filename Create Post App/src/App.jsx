@@ -11,8 +11,9 @@ function App() {
   }
 
   const [formData,setFormData] = useState([])
-  function addFormData(){
-    console.log('heii')
+  console.log(formData)
+  function addFormData(newFormData){
+    setFormData([...formData, {newFormData}])
   }
 
 

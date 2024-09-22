@@ -1,11 +1,11 @@
 import styles from './SingleTodo.module.css'
 
-const SingleTodo = () => {
+const SingleTodo = ({id, todoName, todoDate, deleteItem}) => {
   return (
     <div className={styles.singleTodo}>
-      <div>Math</div>
-      <div>04/12/2024</div>
-      <button className={styles.button}>Remove</button>
+      <div>{todoName}</div>
+      <div>{todoDate}</div>
+      <button className={styles.button} onClick={()=> deleteItem(id)}>Remove</button>
     </div>
   )
 }

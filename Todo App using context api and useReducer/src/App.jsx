@@ -7,16 +7,21 @@ import TodoItems from './components/todoitems/TodoItems'
 function App() {
 
   const [todoItems, setTodoItems] = useState([])
-
+  console.log(todoItems)
   const addNewItem = (todoName,todoDate)=>{
     setTodoItems((prevState)=> [...prevState, {id: crypto.randomUUID(), todoName: todoName, todoDate: todoDate}])
+  }
+
+  const deleteItem = (id)=>{
+    const newTodoItems = todoItems.filter((item)=> item.id !== id)
+    setTodoItems(newTodoItems)
   }
 
   return (
     <div className={styles.main}>
       <AppName />
       <AddTodo addNewItem={addNewItem} />
-      <TodoItems />
+      <TodoItems todoItems={todoItems} deleteItem={deleteItem} />
     </div>
   )
 }

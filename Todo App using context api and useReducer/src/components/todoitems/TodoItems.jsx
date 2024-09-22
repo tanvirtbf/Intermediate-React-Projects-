@@ -1,12 +1,10 @@
 import styles from './TodoItems.module.css'
 import SingleTodo from '../singletodo/SingleTodo'
 
-const TodoItems = () => {
+const TodoItems = ({todoItems, deleteItem}) => {
   return (
     <div className={styles.todoItems}>
-      <SingleTodo />
-      <SingleTodo />
-      <SingleTodo />
+      {todoItems.map((item)=> <SingleTodo key={item.id} id={item.id} todoName={item.todoName} todoDate={item.todoDate} deleteItem={deleteItem} />)}
     </div>
   )
 }

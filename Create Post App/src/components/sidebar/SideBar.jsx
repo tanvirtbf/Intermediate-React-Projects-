@@ -12,7 +12,7 @@ const SideBar = () => {
   }
   return (
     <div className={styles.sidebar}>
-      <p id='home' onClick={()=> handleClick('home')}>Home</p>
+      <p id='home' className={styles.bgAdd} onClick={()=> handleClick('home')}>Home</p>
       <p id='post' onClick={()=> handleClick('post')}>Create Post</p>
     </div>
   )

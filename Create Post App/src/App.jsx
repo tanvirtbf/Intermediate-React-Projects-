@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useReducer, useState } from 'react'
 import styles from './App.module.css'
 import CreatePost from './components/createPost/CreatePost'
 import Home from './components/home/Home'
@@ -6,21 +6,34 @@ import SideBar from './components/sidebar/SideBar'
 import { RootAppContext } from './store/app-context'
 import Message from './components/message/Message'
 
+function reducer(initialState, action){
+  let newState = initialState
+
+  if(action.type === 'ADD'){ 
+    newState = [...initialState, action.payload.newFormData]
+  }else if(action.type === 'DELETE'){
+    newState = initialState.filter((item)=> item.id !== action.payload.id)
+  }
+
+  return newState
+}
+
 function App() {
+
+  const [formData,dispatch] = useReducer(reducer, [])
+
   const [theme,SetTheme] = useState('home')
   function themeChanger(arg){
     SetTheme(arg)
   }
 
-  const [formData,setFormData] = useState([])
 
   function addFormData(newFormData){
-    setFormData([...formData, newFormData])
+    dispatch({type:'ADD', payload:{newFormData: newFormData}})
   }
 
   function deleteFormData(id){
-    const newFormData = formData.filter((item)=> item.id !== id)
-    setFormData(newFormData)
+    dispatch({type:'DELETE', payload: {id:id}})
   }
 
   return (

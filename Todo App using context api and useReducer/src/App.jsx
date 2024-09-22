@@ -6,7 +6,6 @@ import TodoItems from './components/todoitems/TodoItems'
 import Message from './components/message/Message'
 
 function App() {
-
   const [todoItems, setTodoItems] = useState([])
   console.log(todoItems)
   const addNewItem = (todoName,todoDate)=>{

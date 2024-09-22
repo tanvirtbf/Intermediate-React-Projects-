@@ -1,0 +1,8 @@
+.cardItems{
+  display: flex;
+  flex-wrap: wrap;
+  gap:20px;
+  height: fit-content;
+  width: calc(100% - 300px);
+  padding: 20px 0;
+}

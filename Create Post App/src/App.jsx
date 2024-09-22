@@ -11,16 +11,15 @@ function App() {
   }
 
   const [formData,setFormData] = useState([])
-  console.log(formData)
-  function addFormData(newFormData){
-    setFormData([...formData, {newFormData}])
-  }
 
+  function addFormData(newFormData){
+    setFormData([...formData, newFormData])
+  }
 
   return (
     <div className={styles.app}>
       <SideBar themeChanger={themeChanger} />
-      {theme==='home'? <Home /> : <CreatePost addFormData={addFormData} />}
+      {theme==='home'? <Home formData={formData} /> : <CreatePost addFormData={addFormData} />}
     </div>
   )
 }

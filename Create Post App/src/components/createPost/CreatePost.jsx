@@ -15,6 +15,7 @@ const CreatePost = ({addFormData}) => {
   const handleSubmit = (e)=>{
     e.preventDefault()
     addFormData(data)
+    setData({name:'', age:'', university:'', subject:'', designation:''})
   }
   return (
     <form className={styles.form} onSubmit={handleSubmit}>

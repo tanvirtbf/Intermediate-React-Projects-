@@ -3,6 +3,7 @@ import styles from  './App.module.css'
 import AddTodo from './components/addtodo/AddTodo'
 import { useState } from 'react'
 import TodoItems from './components/todoitems/TodoItems'
+import Message from './components/message/Message'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <AppName />
       <AddTodo addNewItem={addNewItem} />
       <TodoItems todoItems={todoItems} deleteItem={deleteItem} />
+      <Message todoItems={todoItems} />
     </div>
   )
 }

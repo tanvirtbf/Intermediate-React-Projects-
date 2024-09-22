@@ -1,9 +1,9 @@
-import React from 'react'
+import styles from './Message.module.css'
 
-const Message = () => {
+const Message = ({todoItems}) => {
   return (
-    <div>
-      Welcome to YOu
+    <div className={styles.message}>
+      {todoItems.length === 0 && <p>Thank Your!</p>}
     </div>
   )
 }
